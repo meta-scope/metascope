@@ -1,21 +1,19 @@
 {
-    "builds": [
-        {
-            "src": "manage.py",
-            "use": "@vercel/python"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/mysite/\\1"
-        }
-    ],
-    "env": {
-        "DJANGO_SETTINGS_MODULE": "mysite.settings"
-    },
-    "dependencies": {
-        "python": "3.9.7",
-        "django": "4.2"
+  "builds": [
+    {
+      "use": "@vercel/python",
+      "entrypoint": "python manage.py runserver",
+      "config": {
+        "maxLambdaSize": "20mb"
+      },
+      "env": {
+        "DJANGO_SETTINGS_MODULE": "myproject.settings"
+      },
+      "dependencies": {
+        "install": [
+          "pip install -r requirements.txt"
+        ]
+      }
     }
+  ]
 }
