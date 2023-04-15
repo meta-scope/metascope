@@ -18,7 +18,7 @@ blockquote b i {font-style: italic;}
 kbd {font-weight: bold; font-size: 1em;}
 sup {font-size: smaller; line-height: 1px;}
 
-.slide { height: 100%; padding: 175px 4% 4% 6%; background: url(../metascope128x101.jpeg) 25px 20px no-repeat; font-size: 120%; }
+.slide { height: 100%; padding: 175px 4% 4% 6%; background: url(../metascope_logo128.png) 25px 20px no-repeat; font-size: 120%; }
 .slide h1 {z-index: 1; margin: 0 20px 0 75px; padding: 0.15em; white-space: nowrap;
   font: bold 150%/1em sans-serif;}
 .slide h2 { margin-right: 2.5em;}
