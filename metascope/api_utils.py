@@ -29,7 +29,7 @@ def run_metadata_query(address, nft_id, blockchain='ethereum'):
     headers = {"Content-Type": "application/json",
             "Authorization": API_TOKEN}  
 
-    response = requests.post(API_URL, json={'query': query}, headers=headers)
+    response = requests.post(API_URL, json={'query': metadata_query}, headers=headers)
 
     return response.json()
 
@@ -45,12 +45,12 @@ def last_transfer(response):
         # format the datetime object into a string in the desired format
         datetime_format = dt_obj.strftime('%Y-%m-%d %H:%M:%S UTC')
 
-        output_str = f"Last Transfer Time: {datetime_format}"
+        output_str = f"Last Transfer Time: {datetime_format}\n"
         
         return output_str
     
     else:
-        return "Last Transfer Time undefined/missing"
+        return "Last Transfer Time undefined/missing\n"
 
 def process_metadata(response):
     """
@@ -95,5 +95,15 @@ def process_metadata(response):
     else:
         return "Raw Metadata undefined/missing"
     
+def process_metadata(address, nft_id, blockchain):
 
+    response = run_metadata_query(address, nft_id, blockchain)
 
+    formatted_str = ''
+    formatted_str += f'Token address: {address}\n'
+    formatted_str += f'Token ID: {nft_id}\n'
+    formatted_str += f'Chain: {blockchain}\n'
+    formatted_str += last_transfer(response)
+    formatted_str += process_metadata(response)
+
+    return formatted_str
