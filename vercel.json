@@ -1,0 +1,21 @@
+{
+    "builds": [
+        {
+            "src": "manage.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/mysite/\\1"
+        }
+    ],
+    "env": {
+        "DJANGO_SETTINGS_MODULE": "mysite.settings"
+    },
+    "dependencies": {
+        "python": "3.9.6",
+        "django": "3.2.8"
+    }
+}
