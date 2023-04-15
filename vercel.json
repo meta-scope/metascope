@@ -15,7 +15,7 @@
         "DJANGO_SETTINGS_MODULE": "mysite.settings"
     },
     "dependencies": {
-        "python": "3.9.6",
-        "django": "3.2.8"
+        "python": "3.9.7",
+        "django": "4.2"
     }
 }
