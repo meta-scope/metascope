@@ -15,7 +15,7 @@ def run_metadata_query(address, nft_id, blockchain):
     metadata_query = f""" 
     query NFTMetadata {{ 
         TokenNft( 
-            input: {{address: {address}, tokenId: {nft_id}, blockchain: {blockchain}}} 
+            input: {{address: "{address}", tokenId: "{nft_id}", blockchain: {blockchain}}} 
         ) {{ 
         id
         rawMetaData 
@@ -30,7 +30,7 @@ def run_metadata_query(address, nft_id, blockchain):
 
     response = requests.post(API_URL, json={'query': metadata_query}, headers=headers)
 
-    return response.json()
+    return response.json()['data']['TokenNft']
 
 def last_transfer(response):
     """
@@ -94,10 +94,10 @@ def process_metadata(response):
     else:
         return "Raw Metadata undefined/missing"
     
-def process_metadata(address, token_id, blockchain):
+def run_metadata(address, token_id, blockchain):
 
     response = run_metadata_query(address, token_id, blockchain)
-
+    print(response)
     formatted_str = ''
     formatted_str += f'Token address: {address}\n'
     formatted_str += f'Token ID: {token_id}\n'
