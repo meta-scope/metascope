@@ -1,0 +1,7 @@
+<form method="post" action="{% url 'results' %}">
+    {% csrf_token %}
+    Contract Address: <input type="text" name="contract_address"><br>
+    Token ID: <input type="text" name="token_id"><br>
+    Blockchain: <input type="text" name="blockchain"><br>
+    <input type="submit" value="Submit">
+</form>
